@@ -4,7 +4,7 @@ An attempt to imitate a chat server with nodejs.
 
 ### Prerequisites
 
-Please read the [INSTALL.md](//https://github.com/pacome35220/my_chat/INSTALL.md)
+Please read the [INSTALL.md](https://github.com/pacome35220/my_chat/INSTALL.md)
 
 ### Getting Started
 
@@ -25,8 +25,8 @@ Click on a channel, put you nickname, and talk to your friends !
 
 ### Versioning
 
-Please read [CHANGELOG.md](//https://github.com/pacome35220/my_chat/CHANGELOG.md)
+Please read [CHANGELOG.md](https://github.com/pacome35220/my_chat/CHANGELOG.md)
 
 ### Authors
 
-Please read [AUTHORS.md](//https://github.com/pacome35220/my_chat/AUTHORS.md)
+Please read [AUTHORS.md](https://github.com/pacome35220/my_chat/AUTHORS.md)
