@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="style.css">
+	<title>
+		<%= channel %>
+	</title>
+</head>
+
+<body>
+	<a href="/"> Home </a>
+	<h1 id="channel_name">
+		<%= channel %>
+	</h1>
+
+	<section class="messages" id="zone_chat">
+
+	</section>
+	<form action="/" method="post" id="chat_form">
+		<input class="input_message" type="text" name="message" id="message" placeholder="Type here..." size="50" autocomplete="off" autofocus />
+	</form>
+
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="main.js"></script>
+</body>
+
+</html>
