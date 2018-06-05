@@ -1,0 +1,35 @@
+body {
+	text-align: center;
+	background: #2196F3;
+	font-family: 'Roboto', sans-serif;
+}
+
+input {
+	border-radius: 6px;
+}
+
+input[type=text] {
+	width: 30%;
+	padding: 12px 20px;
+	border: 1px solid #ccc;
+}
+
+input[type=submit] {
+	width: 150px;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	border: none;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+#channel_list {
+	width: 12em;
+	padding: 0 0 1em 0;
+	margin-bottom: 1em;
+	color: #333;
+}

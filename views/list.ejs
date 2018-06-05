@@ -3,30 +3,28 @@
 
 <head>
 	<meta charset="utf-8" />
+	<link rel="stylesheet" href="list.css">
 	<title>My Discord</title>
 </head>
 
 <body>
 	<h1>Channel list :</h1>
-	<% if (list.length == 0) { %>
-		<a> No channel ! </a>
-		<% } else { %>
-			<ul>
-				<% for (var i = 0; i < list.length; i++) { %>
-					<li>
-						<a href="/<%= list[i] %>">
-							<%= list[i] %>
-						</a>
-					</li>
-					<% }; %>
-			</ul>
-			<% } %>
-				<br>
-				<br>
-				<form action="/" method="post">
-					<input type="text" name="new_channel" placeholder="New channel" size="25" autofocus />
-					<input type="submit" value="Create" />
-				</form>
+	<ul id="channel_list">
+		<% for (var i = 0; i < discord.length; i++) { %>
+			<li>
+				<a href="/<%= discord[i].channel_name %>">
+					<%= discord[i].channel_name %>
+						<%= discord[i].history.length %>
+				</a>
+			</li>
+			<% }; %>
+	</ul>
+	<br>
+	<br>
+	<form action="/" method="post">
+		<input type="text" name="new_channel" placeholder="New channel" size="25" autocomplete="off" />
+		<input type="submit" value="Create" />
+	</form>
 </body>
 
 </html>
