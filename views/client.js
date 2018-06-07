@@ -12,7 +12,7 @@ document.title = name + ' - ' + document.title;
 
 socket.on('new_client', function(client) { // client.name, client.channel
 	if (client.channel == channel)
-		$('#zone_chat').append('<p><em>' + client.name + ' join the channel !</em></p>');
+		$('#zone_chat').append('<p><em>' + client.name + ' join the channel.</em></p>');
 })
 
 socket.on('get_history', function(data) { // data.channel, data.history

@@ -30,9 +30,11 @@ var discord = [init_new_channel('general')];
 app.use(express.static(path.join(__dirname, 'views')));
 
 app.get('/', function(req, res) {
-	res.render('list.ejs', {
-		discord: discord
-	});
+	res.sendFile(path.join(__dirname, 'views', "login.html"));
+	/*	res.render('list.ejs', {
+			discord: discord
+		});
+	*/
 });
 
 app.post('/', urlencodedParser, function(req, res) {

@@ -11,11 +11,12 @@ Please read the [INSTALL.md](https://github.com/pacome35220/my_chat/blob/master/
 ```
 $ git clone https://github.com/pacome35220/my_chat.git
 $ cd my_chat
-$ npm install && npm start
+$ npm install
+$ npm start
 ```
 
 Go on your favorite browser, at [localhost:8080](localhost:8080), you can see the list of the channel you have created, and create a new.
-Click on a channel, put you nickname, and talk to your friends !
+Click on a channel, put your nickname, and talk to your friends (or yourself) !
 
 ### Built With
 
