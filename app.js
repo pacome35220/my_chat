@@ -25,6 +25,7 @@ function get_history(name) {
 }
 
 var discord = [init_new_channel('general')];
+var name = [];
 
 app.use(express.static(path.join(__dirname, 'views')),
 	compression(),
@@ -35,13 +36,22 @@ app.use(express.static(path.join(__dirname, 'views')),
 
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname, 'views', "login.html"));
-	/*	res.render('list.ejs', {
-			discord: discord
-		});
-	*/
 });
 
 app.post('/', function(req, res) {
+	if (name.indexOf(req.body.user_name) == -1)
+		name.push(req.body.user_name);
+	res.redirect("/list");
+});
+
+app.get('/list', function(req, res) {
+	res.render('list.ejs', {
+		discord: discord
+	});
+});
+
+app.post('/list', function(req, res) {
+    console.log("deddede");
 	res.redirect("/" + req.body.new_channel);
 });
 
