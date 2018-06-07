@@ -2,10 +2,9 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+var compression = require('compression');
+var body_parser = require('body-parser');
 var path = require('path');
-var urlencodedParser = require('body-parser').urlencoded({
-	extended: false
-});
 
 function init_new_channel(name) {
 	return ({
@@ -27,7 +26,12 @@ function get_history(name) {
 
 var discord = [init_new_channel('general')];
 
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'views')),
+	compression(),
+	body_parser.urlencoded({
+		extended: false
+	})
+);
 
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname, 'views', "login.html"));
@@ -37,7 +41,7 @@ app.get('/', function(req, res) {
 	*/
 });
 
-app.post('/', urlencodedParser, function(req, res) {
+app.post('/', function(req, res) {
 	res.redirect("/" + req.body.new_channel);
 });
 

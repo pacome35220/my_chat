@@ -1,5 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
+## 4.0 - 07/05/2018
+### Added
+- Login page for don't always ask for name
+- Particles on login page
+## 3.2 - 05/05/2018
+### Changed
+- Data structure
+- Code cleanness
 ## 3.1 - 31/05/2018
 ### Added
 - Add auto-scrolling responsive just trust
