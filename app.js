@@ -4,7 +4,8 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var compression = require('compression');
 var body_parser = require('body-parser');
-var path = require('path');
+var cookie_parser = require('cookie-parser');
+var session = require('express-session');
 
 function init_new_channel(name) {
 	return ({
@@ -32,11 +33,17 @@ module.exports = {
 	name: name
 };
 
-app.use(express.static(path.join(__dirname, 'views')),
-	compression(),
+app.use(express.static('./views/'),
 	body_parser.urlencoded({
 		extended: false
 	}),
+	session({
+		secret: "Google told me that this value was useless",
+		resave: false,
+		saveUninitialized: false
+	}),
+	compression(),
+	cookie_parser(),
 );
 
 app.use('/', require('./routes/index.js'));
@@ -48,6 +55,18 @@ app.get('/:name', function(req, res) {
 	res.render('channel.ejs', {
 		channel: req.params.name
 	});
+});
+
+app.get('/logout', function(req, res) {
+	req.session.destroy(function() {
+		console.log("User logged out.");
+	});
+	res.redirect('/login');
+});
+
+app.use('/list', function(err, req, res, next) {
+	console.log(err);
+	res.redirect('/');
 });
 
 io.on('connection', function(socket) {

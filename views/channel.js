@@ -1,6 +1,6 @@
 var socket = io.connect('http://localhost:8080');
 
-var name = prompt('What\'s yout name ?');
+//var name = prompt('What\'s yout name ?');
 var channel = document.title;
 
 socket.emit('new_client', {
