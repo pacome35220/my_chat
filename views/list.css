@@ -1,7 +1,10 @@
 body {
-	text-align: center;
 	background: #2196F3;
 	font-family: 'Roboto', sans-serif;
+}
+
+div {
+	text-align: center;
 }
 
 input {

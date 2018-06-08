@@ -8,25 +8,28 @@
 </head>
 
 <body>
-	<h1>Channel list :</h1>
-	<ul id="channel_list">
-		<% for (var i = 0; i < discord.length; i++) { %>
-			<li>
-				<a href="/<%= discord[i].channel_name %>">
-					<%= discord[i].channel_name %>
-				</a>
-				<a>
-					<%= discord[i].history.length - 1 %>
-				</a>
-			</li>
-			<% }; %>
-	</ul>
-	<br>
-	<br>
-	<form action="/list" method="post">
-		<input type="text" name="new_channel" placeholder="New channel" size="25" autocomplete="off" />
-		<input type="submit" value="Create" />
-	</form>
+	<a href="/"> Home </a>
+	<div>
+		<h1>Channel list :</h1>
+		<ul id="channel_list">
+			<% for (var i = 0; i < discord.length; i++) { %>
+				<li>
+					<a href="/<%= discord[i].channel_name %>">
+						<%= discord[i].channel_name %>
+					</a>
+					<a>
+						<%= discord[i].history.length - 1 %>
+					</a>
+				</li>
+				<% }; %>
+		</ul>
+		<br>
+		<br>
+		<form action="/list" method="post">
+			<input type="text" name="new_channel" placeholder="New channel" size="25" autocomplete="off" />
+			<input type="submit" value="Create" />
+		</form>
+	</div>
 </body>
 
 </html>
