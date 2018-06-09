@@ -1,10 +1,17 @@
 body {
 	background: #2196F3;
-	font-family: 'Roboto', sans-serif;
+	font-family: sans-serif;
 }
 
 div {
 	text-align: center;
+}
+
+#channel_list {
+	width: 12em;
+	padding: 0 0 1em 0;
+	margin-bottom: 1em;
+	color: #333;
 }
 
 input {
@@ -28,11 +35,4 @@ input[type=submit] {
 
 input[type=submit]:hover {
 	background-color: #45a049;
-}
-
-#channel_list {
-	width: 12em;
-	padding: 0 0 1em 0;
-	margin-bottom: 1em;
-	color: #333;
 }

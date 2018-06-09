@@ -10,19 +10,24 @@
 </head>
 
 <body>
-	<a href="/"> Home </a>
-	<br>
+	<a href="/"> Home </a><br>
 	<a href="/list"> List </a>
 	<h1 id="channel_name">
 		<%= channel %>
 	</h1>
 
 	<section id="zone_chat">
-
 	</section>
-	<form action="/" method="post" id="chat_form">
+
+
+	<form action="" method="post" id="chat_form">
 		<input class="input_message" type="text" name="message" id="message" placeholder="Type here..." size="50" autocomplete="off" autofocus />
 	</form>
+
+	<script>
+		var name = '<%= username %>';
+		var channel = '<%= channel %>';
+	</script>
 
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>

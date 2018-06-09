@@ -10,9 +10,9 @@ function checkSignIn(req, res, next) {
 }
 
 router.get('/', checkSignIn, function(req, res) {
-	console.log("list : ", req.session.user);
 	res.render('list.ejs', {
-		discord: data.discord
+		discord: data.discord,
+		username: req.session.user
 	});
 });
 
