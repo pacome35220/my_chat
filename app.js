@@ -4,7 +4,6 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var compression = require('compression');
 var body_parser = require('body-parser');
-var cookie_parser = require('cookie-parser');
 var session = require('express-session');
 
 function init_new_channel(name) {
@@ -25,6 +24,13 @@ function get_history(name) {
 	return (discord[get_channel_id(name)].history);
 }
 
+function checkSignIn(req, res, next) {
+	if (req.session.user)
+		next();
+	else
+		next("Not logged in !");
+}
+
 var discord = [init_new_channel('general')];
 var name = [];
 
@@ -43,20 +49,13 @@ app.use(express.static('views/'),
 		saveUninitialized: false
 	}),
 	compression(),
-	cookie_parser(),
 );
-
-function checkSignIn(req, res, next) {
-	if (req.session.user)
-		next();
-	else
-		next("Not logged in !");
-}
 
 app.use('/', require('./routes/index.js'));
 app.use('/list', require('./routes/list.js'));
 
 app.get('/logout', function(req, res) {
+	name.splice(name.indexOf(req.session.user), 1);
 	req.session.destroy(function() {
 		console.log("User logged out.");
 	});

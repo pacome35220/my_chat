@@ -9,13 +9,10 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	if (name.indexOf(req.body.username) != -1)
-		res.redirect('/');
-	else {
+	if (name.indexOf(req.body.username) == -1)
 		name.push(req.body.username);
-		req.session.user = req.body.username;
-		res.redirect("/list");
-	}
+	req.session.user = req.body.username;
+	res.redirect("/list");
 });
 
 module.exports = router;

@@ -17,7 +17,7 @@ router.get('/', checkSignIn, function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	res.redirect("/" + req.body.new_channel);
+	res.redirect('/' + req.body.new_channel);
 });
 
 module.exports = router;
