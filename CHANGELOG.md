@@ -1,8 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
+## 4.1 - 10/05/2018
+### Add
+- Logout button
+- Show username on channel list page
+- Security by checking if user is connect before access to a channel
+### Modified
+- Architecture of app.js file (routes handling)
 ## 4.0 - 07/05/2018
 ### Added
-- Login page for don't always ask for name
+- Login page for don't always ask for username
 - Particles on login page
 ## 3.2 - 05/05/2018
 ### Changed
