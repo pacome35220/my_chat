@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	if (discord.name.indexOf(req.body.username) == -1)
+	if (discord.users.indexOf(req.body.username) == -1)
 		discord.add_user(req.body.username);
 	req.session.user = req.body.username;
 	res.redirect("/list");

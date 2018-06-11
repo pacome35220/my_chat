@@ -11,8 +11,8 @@ var Discord = require('./discord.js');
 var discord = new Discord();
 
 module.exports = {
-    discord: discord,
-    checkSignIn: discord.checkSignIn
+	discord: discord,
+	checkSignIn: discord.checkSignIn
 };
 
 app.use(express.static('views/'),
@@ -31,7 +31,7 @@ app.use('/', require('./routes/index.js'));
 app.use('/list', require('./routes/list.js'));
 
 app.get('/logout', function(req, res) {
-	discord.name.splice(discord.name.indexOf(req.session.user), 1);
+	discord.remove_user(req.session.user);
 	req.session.destroy(function() {
 		console.log("User logged out.");
 	});

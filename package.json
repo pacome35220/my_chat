@@ -4,9 +4,10 @@
 	"description": "A chat server with nodejs",
 	"main": "app.js",
 	"scripts": {
-		"start": "node app.js"
+		"start": "node app.js",
+		"dev": "nodemon app.js"
 	},
-	"author": "Pacôme Françon",
+	"author": "Pacôme Françon <pacome.francon@epitech.eu>",
 	"license": "ISC",
 	"dependencies": {
 		"body-parser": "^1.18.3",

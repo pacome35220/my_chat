@@ -2,7 +2,7 @@ module.exports = class Discord {
 
 	constructor() {
 		this.discord = [];
-		this.name = [];
+		this.users = [];
 		this.add_channel('general');
 	};
 
@@ -17,15 +17,19 @@ module.exports = class Discord {
 	}
 
 	add_user(name) {
-		this.name.push(name);
+		this.users.push(name);
+	}
+
+	remove_user(name) {
+		this.users.splice(this.users.indexOf(name), 1);
 	}
 
 	get_channel_id(name) {
 		return (this.discord.findIndex(discord => discord.channel_name === name));
 	}
 
-	get_history(name) {
-		return (this.discord[this.get_channel_id(name)].history);
+	get_history(channel_name) {
+		return (this.discord[this.get_channel_id(channel_name)].history);
 	}
 
 	checkSignIn(req, res, next) {
