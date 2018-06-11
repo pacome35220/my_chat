@@ -6,37 +6,13 @@ var compression = require('compression');
 var body_parser = require('body-parser');
 var session = require('express-session');
 
-function init_new_channel(name) {
-	return ({
-		channel_name: name,
-		history: [{
-			name: 'God',
-			message: 'Welcome to ' + name,
-		}],
-	});
-}
+var Discord = require('./discord.js');
 
-function get_channel_id(name) {
-	return (discord.findIndex(discord => discord.channel_name === name));
-}
-
-function get_history(name) {
-	return (discord[get_channel_id(name)].history);
-}
-
-function checkSignIn(req, res, next) {
-	if (req.session.user)
-		next();
-	else
-		next("Not logged in !");
-}
-
-var discord = [init_new_channel('general')];
-var name = [];
+var discord = new Discord();
 
 module.exports = {
-	discord: discord,
-	name: name
+    discord: discord,
+    checkSignIn: discord.checkSignIn
 };
 
 app.use(express.static('views/'),
@@ -55,16 +31,16 @@ app.use('/', require('./routes/index.js'));
 app.use('/list', require('./routes/list.js'));
 
 app.get('/logout', function(req, res) {
-	name.splice(name.indexOf(req.session.user), 1);
+	discord.name.splice(discord.name.indexOf(req.session.user), 1);
 	req.session.destroy(function() {
 		console.log("User logged out.");
 	});
 	res.redirect('/');
 });
 
-app.get('/:name', checkSignIn, function(req, res) {
-	if (get_channel_id(req.params.name) == -1)
-		discord.push(init_new_channel(req.params.name));
+app.get('/:name', discord.checkSignIn, function(req, res) {
+	if (discord.get_channel_id(req.params.name) == -1)
+		discord.add_channel(req.params.name);
 	res.render('channel.ejs', {
 		channel: req.params.name,
 		username: req.session.user
@@ -82,7 +58,7 @@ io.on('connection', function(socket) {
 		socket.broadcast.emit('new_client', client);
 		socket.emit('get_history', {
 			channel: client.channel,
-			history: get_history(client.channel)
+			history: discord.get_history(client.channel)
 		});
 	});
 	socket.on('message', function(data) { // data.channel, data.message
@@ -91,7 +67,7 @@ io.on('connection', function(socket) {
 			name: socket.name,
 			message: data.message
 		});
-		get_history(data.channel).push({
+		discord.get_history(data.channel).push({
 			name: socket.name,
 			message: data.message
 		});

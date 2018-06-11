@@ -1,7 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
+## 4.2 - 11/05/2018
+### Added
+- Class Discord, for a cleaner code
 ## 4.1 - 10/05/2018
-### Add
+### Added
 - Logout button
 - Show username on channel list page
 - Security by checking if user is connect before access to a channel
@@ -12,7 +15,7 @@ All notable changes to this project will be documented in this file.
 - Login page for don't always ask for username
 - Particles on login page
 ## 3.2 - 05/05/2018
-### Changed
+### Modified
 - Data structure
 - Code cleanness
 ## 3.1 - 31/05/2018
@@ -28,7 +31,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Functionnal channel for unlimit users
 ## 1.1 - 29/05/2018
-### Changed
+### Modified
 - So beautiful EJS templates
 ## 1.0 - 28/05/2018
 ### Added
