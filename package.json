@@ -4,7 +4,7 @@
 	"description": "Epitech MAKER Project #1",
 	"main": "app.js",
 	"scripts": {
-		"start": "nodemon app.js"
+		"start": "node app.js"
 	},
 	"author": "Pacôme Françon",
 	"license": "ISC",
