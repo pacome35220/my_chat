@@ -1,6 +1,6 @@
 # my_chat
 
-An attempt to imitate a chat server with nodejs.
+A chat server with nodejs.
 
 ### Prerequisites
 
@@ -15,8 +15,8 @@ $ npm install
 $ npm start
 ```
 
-Go on your favorite browser, at [localhost:8080](localhost:8080), you can see the list of the channel you have created, and create a new.
-Click on a channel, put your nickname, and talk to your friends (or yourself) !
+Go on your favorite browser, at [localhost:8080](localhost:8080), put your username : now you can see the list of the channel you have created, and create a new.
+Click on a channel, and talk to your friends (or yourself) !
 
 ### Built With
 

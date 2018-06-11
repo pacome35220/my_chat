@@ -1,7 +1,7 @@
 {
 	"name": "my_chat",
-	"version": "3.0.0",
-	"description": "Epitech MAKER Project #1",
+	"version": "4.2.0",
+	"description": "A chat server with nodejs",
 	"main": "app.js",
 	"scripts": {
 		"start": "node app.js"
