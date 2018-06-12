@@ -9,10 +9,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	if (discord.users.indexOf(req.body.username) == -1)
-		discord.add_user(req.body.username);
-	req.session.user = req.body.username;
-	res.redirect("/list");
+	if (req.body.username.match(/^[a-zA-Z][a-zA-Z0-9 -_]*[a-zA-Z0-9]+$/)) {
+		if (discord.users.indexOf(req.body.username) == -1)
+			discord.add_user(req.body.username);
+		req.session.user = req.body.username;
+		res.redirect("/list");
+	} else
+		res.redirect('/');
 });
 
 module.exports = router;

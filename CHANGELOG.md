@@ -1,5 +1,8 @@
 # Changelog
 All notable changes to this project will be documented in this file.
+## 4.3 - 12/05/2018
+### Added
+- Regex for security on all form
 ## 4.2 - 11/05/2018
 ### Added
 - Class Discord, for a cleaner code

@@ -6,6 +6,7 @@ var discord = data.discord;
 var checkSignIn = discord.checkSignIn;
 
 router.get('/', checkSignIn, function(req, res) {
+	console.log(discord.users);
 	res.render('list.ejs', {
 		discord: discord.discord,
 		username: req.session.user
@@ -13,7 +14,7 @@ router.get('/', checkSignIn, function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	if (req.body.new_channel.match(/\S/))
+	if (req.body.new_channel.match(/^[a-zA-Z]+$/))
 		res.redirect('/' + req.body.new_channel);
 	else
 		res.redirect('/list');

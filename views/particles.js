@@ -99,7 +99,7 @@ particlesJS("particles-js", {
 				duration: 0.4
 			},
 			push: {
-				particles_nb: 4
+				particles_nb: 2
 			},
 			remove: {
 				particles_nb: 2
