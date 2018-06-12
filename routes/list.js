@@ -13,7 +13,10 @@ router.get('/', checkSignIn, function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	res.redirect('/' + req.body.new_channel);
+	if (req.body.new_channel.match(/\S/))
+		res.redirect('/' + req.body.new_channel);
+	else
+		res.redirect('/list');
 });
 
 module.exports = router;
