@@ -1,4 +1,5 @@
 var socket = io.connect('http://localhost:8080');
+//var socket = io.connect('10.19.254.144:8080');
 
 socket.emit('new_client', {
 	name: name,
@@ -30,7 +31,6 @@ $('#chat_form').submit(function() {
 			message: message,
 			channel: channel
 		});
-		put_message(name, message);
 		$('#message').val('').focus();
 	}
 	return false;

@@ -39,18 +39,34 @@ app.get('/logout', function(req, res) {
 });
 
 app.get('/:name', discord.checkSignIn, function(req, res) {
-	if (discord.get_channel_id(req.params.name) == -1)
-		discord.add_channel(req.params.name);
-	res.render('channel.ejs', {
-		channel: req.params.name,
-		username: req.session.user
-	});
+	if (req.params.name.match(/^[a-zA-Z]+$/)) {
+		if (discord.get_channel_id(req.params.name) == -1)
+			discord.add_channel(req.params.name);
+		res.render('channel.ejs', {
+			channel: req.params.name,
+			username: req.session.user
+		});
+	} else
+		res.redirect('/list');
 });
 
 app.use(function(err, req, res, next) {
 	console.log("Error : ", err);
 	res.redirect('/');
 });
+
+function transform_message(str) {
+	var map = {
+		'&': '&amp;',
+		'<': '&lt;',
+		'>': '&gt;',
+		'"': '&quot;',
+		"'": '&#039;'
+	};
+	return str.replace(/[&<>"']/g, function(i) {
+		return map[i];
+	});
+}
 
 io.on('connection', function(socket) {
 	socket.on('new_client', function(client) { // client.name, client.channel
@@ -62,7 +78,13 @@ io.on('connection', function(socket) {
 		});
 	});
 	socket.on('message', function(data) { // data.channel, data.message
+		data.message = transform_message(data.message);
 		socket.broadcast.emit('message', {
+			channel: data.channel,
+			name: socket.name,
+			message: data.message
+		});
+		socket.emit('message', {
 			channel: data.channel,
 			name: socket.name,
 			message: data.message
