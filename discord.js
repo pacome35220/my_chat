@@ -21,15 +21,27 @@ module.exports = class Discord {
 	}
 
 	remove_user(name) {
-		this.users.splice(this.users.indexOf(name), 1);
+		var i = this.users.indexOf(name);
+		if (i != -1)
+			this.users.splice(i, 1);
 	}
 
 	get_channel_id(name) {
 		return (this.discord.findIndex(discord => discord.channel_name === name));
 	}
 
-	get_history(channel_name) {
-		return (this.discord[this.get_channel_id(channel_name)].history);
+	get_channel_history(channel_name) {
+		var i = this.get_channel_id(channel_name);
+		if (i != -1)
+			return (this.discord[i].history);
+	}
+
+	add_message_history(channel, name, message) {
+		this.get_channel_history(channel).push({
+			name: name,
+			message: message
+		});
+
 	}
 
 	checkSignIn(req, res, next) {

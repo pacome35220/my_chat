@@ -14,7 +14,7 @@ socket.on('new_client', function(client) { // client.name, client.channel
 });
 
 socket.on('get_history', function(data) { // data.channel, data.history
-	if (data.channel == channel)
+	if (data.channel == channel && data.history)
 		for (var i = 0; i < data.history.length; i++)
 			put_message(data.history[i].name, data.history[i].message);
 });

@@ -74,7 +74,7 @@ io.on('connection', function(socket) {
 		socket.broadcast.emit('new_client', client);
 		socket.emit('get_history', {
 			channel: client.channel,
-			history: discord.get_history(client.channel)
+			history: discord.get_channel_history(client.channel)
 		});
 	});
 	socket.on('message', function(data) { // data.channel, data.message
@@ -89,10 +89,7 @@ io.on('connection', function(socket) {
 			name: socket.name,
 			message: data.message
 		});
-		discord.get_history(data.channel).push({
-			name: socket.name,
-			message: data.message
-		});
+		discord.add_message_history(data.channel, socket.name, data.message);
 	});
 });
 
