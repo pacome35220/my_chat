@@ -41,7 +41,6 @@ module.exports = class Discord {
 			name: name,
 			message: message
 		});
-
 	}
 
 	checkSignIn(req, res, next) {
