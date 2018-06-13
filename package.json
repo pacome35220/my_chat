@@ -1,6 +1,6 @@
 {
 	"name": "my_chat",
-	"version": "4.2.0",
+	"version": "4.4.0",
 	"description": "A chat server with nodejs",
 	"main": "app.js",
 	"scripts": {

@@ -3,28 +3,69 @@ body {
 	font-family: sans-serif;
 }
 
-div {
+#home .link_button {
+	margin: 40px 0 0 40px;
+	text-align: left;
+}
+
+#logout .link_button {
+	margin: -35px 40px 0 0;
+	text-align: right;
+}
+
+.link_button span {
+	margin-right: 40px;
+	font-weight: 700;
+}
+
+.link_button input {
+	cursor: pointer;
+	outline: 0;
+	border: none;
+	background: #e0e1e2 none;
+	color: rgba(0, 0, 0, .6);
+	padding: .78571429em 1.5em .78571429em;
+	font-weight: 700;
+	line-height: 1em;
+	border-radius: .28571429rem;
+}
+
+.link_button input:hover {
+	background-color: #cacbcd;
+	color: rgba(0, 0, 0, .8);
+}
+
+.link_button input:active {
+	background-color: #babbbc;
+	color: rgba(0, 0, 0, .9);
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+#channel_list .link_button {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#new_channel {
+	margin-top: 200px;
 	text-align: center;
 }
 
-#channel_list {
-	width: 12em;
-	padding: 0 0 1em 0;
-	margin-bottom: 1em;
-	color: #333;
-}
-
-input {
+#new_channel input {
 	border-radius: 6px;
 }
 
-input[type=text] {
+#new_channel input[type=text] {
 	width: 30%;
 	padding: 12px 20px;
 	border: 1px solid #ccc;
 }
 
-input[type=submit] {
+#new_channel input[type=submit] {
 	width: 150px;
 	background-color: #4CAF50;
 	color: white;
@@ -33,6 +74,6 @@ input[type=submit] {
 	cursor: pointer;
 }
 
-input[type=submit]:hover {
+#new_channel input[type=submit]:hover {
 	background-color: #45a049;
 }

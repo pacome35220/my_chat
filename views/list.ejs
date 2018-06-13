@@ -4,37 +4,37 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="list.css">
-	<title>My Discord</title>
+	<title>My Discord - List</title>
 </head>
 
 <body>
-	<a href="/"> Home </a>
-	<br>
-	<a href="/logout"> Logout </a>
-	<br>
-	<br>
-	<a> Welcome : <%= username %> </a>
-	<div>
-		<h1>Channel list :</h1>
-		<ul id="channel_list">
-			<% for (var i = 0; i < discord.length; i++) { %>
-				<li>
-					<a href="/<%= discord[i].channel_name %>">
-						<%= discord[i].channel_name %>
-					</a>
-					<a>
-						<%= discord[i].history.length - 1 %>
-					</a>
-				</li>
-				<% }; %>
-		</ul>
-		<br>
-		<br>
-		<form action="/list" method="post">
-			<input type="text" name="new_channel" placeholder="New channel" size="25" autocomplete="off" autofocus required />
-			<input type="submit" value="Create" />
+	<form id="home" action="/">
+		<div class="link_button">
+			<input type="submit" value="Home" />
+		</div>
+	</form>
+
+	<form id="logout" action="/logout">
+		<div class="link_button">
+			<span> <%= username %> </span>
+			<input type="submit" value="Logout" />
+		</div>
+	</form>
+
+	<h1>Channel list</h1>
+	<% for (var i = 0; i < discord.length; i++) { %>
+		<form id="channel_list" action="/<%=discord[i].channel_name%>">
+			<div class="link_button">
+				<input type="submit" value="<%=discord[i].channel_name%>" />
+				<span> <%= discord[i].history.length - 1 %> messages </span>
+			</div>
 		</form>
-	</div>
+	<% }; %>
+
+	<form id="new_channel" action="/list" method="post">
+		<input type="text" name="new_channel" placeholder="New channel" size="25" autocomplete="off" autofocus required />
+		<input type="submit" value="Create" />
+	</form>
 </body>
 
 </html>
