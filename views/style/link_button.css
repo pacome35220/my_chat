@@ -1,0 +1,27 @@
+.link_button span {
+	margin: 0 40px 0 40px;
+	font-weight: 700;
+}
+
+.link_button a {
+	cursor: pointer;
+	outline: 0;
+	border: none;
+	background: #e0e1e2 none;
+	color: rgba(0, 0, 0, .6);
+	padding: .78571429em 1.5em .78571429em;
+	font-weight: 700;
+	line-height: 1em;
+	border-radius: .28571429rem;
+	text-decoration: none
+}
+
+.link_button a:hover {
+	background-color: #cacbcd;
+	color: rgba(0, 0, 0, .8);
+}
+
+.link_button a:active {
+	background-color: #babbbc;
+	color: rgba(0, 0, 0, .9);
+}

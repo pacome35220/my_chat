@@ -3,24 +3,37 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="channel.css">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="style/channel.css">
+	<link rel="stylesheet" href="style/link_button.css">
 	<title>
 		<%= channel %>
 	</title>
 </head>
 
 <body>
-	<a href="/"> Home </a><br>
-	<a href="/list"> List </a>
-	<h1 id="channel_name">
+	<div class="button link_button">
+		<a href="/"> Home </a>
+	</div>
+
+	<div class="button link_button">
+		<a href="/list"> List </a>
+	</div>
+
+	<div class="logout link_button">
+		<span> <%= username %> </span>
+		<a href="/logout"> Logout </a>
+	</div>
+
+	<h1>
 		<%= channel %>
 	</h1>
 
 	<section id="zone_chat">
 	</section>
 
-	<form action="" method="post" id="chat_form">
-		<input class="input_message" type="text" name="message" id="message" placeholder="Type here..." size="240" autocomplete="off" autofocus />
+	<form id="chat_form">
+		<input type="text" name="message" id="message" placeholder="Type here..." size="240" autocomplete="off" autofocus />
 	</form>
 
 	<script>

@@ -3,38 +3,36 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="list.css">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="style/list.css">
+	<link rel="stylesheet" href="style/link_button.css">
 	<title>My Discord - List</title>
 </head>
 
 <body>
-	<form id="home" action="/">
-		<div class="link_button">
-			<input type="submit" value="Home" />
-		</div>
-	</form>
+	<div class="home link_button">
+		<a href="/"> Home </a>
+	</div>
 
-	<form id="logout" action="/logout">
-		<div class="link_button">
-			<span> <%= username %> </span>
-			<input type="submit" value="Logout" />
-		</div>
-	</form>
+	<div class="logout link_button">
+		<span> <%= username %> </span>
+		<a href="/logout"> Logout </a>
+	</div>
 
 	<h1>Channel list</h1>
 	<% for (var i = 0; i < discord.length; i++) { %>
-		<form id="channel_list" action="/<%=discord[i].channel_name%>">
-			<div class="link_button">
-				<input type="submit" value="<%=discord[i].channel_name%>" />
-				<span> <%= discord[i].history.length - 1 %> messages </span>
-			</div>
-		</form>
-	<% }; %>
+		<div class="channel_list link_button">
+			<a href="<%=discord[i].channel_name%>">
+				<%=discord[i].channel_name%>
+			</a>
+			<span> <%= discord[i].history.length - 1 %> messages </span>
+		</div>
+		<% }; %>
 
-	<form id="new_channel" action="/list" method="post">
-		<input type="text" name="new_channel" placeholder="New channel" size="25" autocomplete="off" autofocus required />
-		<input type="submit" value="Create" />
-	</form>
+			<form id="new_channel" action="/list" method="post">
+				<input type="text" name="new_channel" placeholder="New channel" size="25" autocomplete="off" autofocus required />
+				<input type="submit" value="Create" />
+			</form>
 </body>
 
 </html>

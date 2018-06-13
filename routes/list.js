@@ -14,7 +14,12 @@ router.get('/', checkSignIn, function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	res.redirect('/' + req.body.new_channel);
+	var new_channel = req.body.new_channel;
+
+	if (new_channel.length < 25 && new_channel.match(/^[a-zA-Z]+$/))
+		res.redirect('/' + new_channel);
+	else
+		res.redirect('/list');
 });
 
 module.exports = router;

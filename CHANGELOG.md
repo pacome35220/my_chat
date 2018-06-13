@@ -2,7 +2,8 @@
 All notable changes to this project will be documented in this file.
 ## 4.4 - 13/05/2018
 ### Modified
-- CSS on the channel list page : button for logout and go back home
+- CSS : button for logout and go back home
+- Patch bug on auto-scrolling message on channel page
 ## 4.3 - 12/05/2018
 ### Added
 - Regex for security on all form
