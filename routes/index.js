@@ -9,10 +9,12 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	if (req.body.username.match(/^[a-zA-Z][a-zA-Z0-9 -_]*[a-zA-Z0-9]+$/)) {
-		if (discord.users.indexOf(req.body.username) == -1)
-			discord.add_user(req.body.username);
-		req.session.user = req.body.username;
+	var user = req.body.username;
+
+	if (user.length < 20 && user.match(/^[a-zA-Z][a-zA-Z0-9 -_]*[a-zA-Z0-9]+$/)) {
+		if (discord.users.indexOf(user) == -1)
+			discord.add_user(user);
+		req.session.user = user;
 		res.redirect("/list");
 	} else
 		res.redirect('/');

@@ -39,7 +39,7 @@ app.get('/logout', function(req, res) {
 });
 
 app.get('/:name', discord.checkSignIn, function(req, res) {
-	if (req.params.name.match(/^[a-zA-Z]+$/)) {
+	if (req.params.name < 25 && req.params.name.match(/^[a-zA-Z]+$/)) {
 		if (discord.get_channel_id(req.params.name) == -1)
 			discord.add_channel(req.params.name);
 		res.render('channel.ejs', {
@@ -78,17 +78,13 @@ io.on('connection', function(socket) {
 		});
 	});
 	socket.on('message', function(data) { // data.channel, data.message
-		data.message = transform_message(data.message);
-		socket.broadcast.emit('message', {
+		var message = {
 			channel: data.channel,
 			name: socket.name,
-			message: data.message
-		});
-		socket.emit('message', {
-			channel: data.channel,
-			name: socket.name,
-			message: data.message
-		});
+			message: transform_message(data.message)
+		};
+		socket.broadcast.emit('message', message);
+		socket.emit('message', message);
 		discord.add_message_history(data.channel, socket.name, data.message);
 	});
 });

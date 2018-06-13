@@ -14,10 +14,7 @@ router.get('/', checkSignIn, function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	if (req.body.new_channel.match(/^[a-zA-Z]+$/))
-		res.redirect('/' + req.body.new_channel);
-	else
-		res.redirect('/list');
+	res.redirect('/' + req.body.new_channel);
 });
 
 module.exports = router;
