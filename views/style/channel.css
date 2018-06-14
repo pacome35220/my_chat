@@ -27,6 +27,7 @@ h1 {
 #chat_form input {
 	position: fixed;
 	border: 10px solid #000;
+	margin-left: -10px;
 	font-size: 130%;
 	padding: 40px 0 40px 20px;
 	outline: none;

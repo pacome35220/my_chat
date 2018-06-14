@@ -20,7 +20,16 @@ h1 {
 
 .channel_list.link_button {
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
+}
+
+#user_list {
+	text-align: right;
+	margin: 100px 100px 0 0;
+	list-style-type: none;
+}
+
+#user_list li {
 }
 
 #new_channel {

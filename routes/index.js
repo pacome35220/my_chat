@@ -15,6 +15,7 @@ router.post('/', function(req, res) {
 		if (discord.users.indexOf(user) == -1)
 			discord.add_user(user);
 		req.session.user = user;
+		console.log(discord.users);
 		res.redirect("/list");
 	} else
 		res.redirect('/');

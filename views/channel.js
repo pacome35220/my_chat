@@ -8,9 +8,9 @@ socket.emit('new_client', {
 
 document.title = name + ' - ' + document.title;
 
-socket.on('new_client', function(client) { // client.name, client.channel
-	if (client.channel == channel)
-		$('#zone_chat').append('<p><em>' + client.name + ' join the channel.</em></p>');
+socket.on('new_client', function(data) { // data.name, data.channel
+	if (data.channel == channel)
+		$('#zone_chat').append('<p><em>' + data.name + ' join the channel.</em></p>');
 });
 
 socket.on('get_history', function(data) { // data.channel, data.history
@@ -38,7 +38,7 @@ $('#chat_form').submit(function() {
 
 function put_message(name, message) {
 	$('#zone_chat').append('<p><strong>' + name + ":" + '</strong> ' + message + '</p>');
-	$('section').animate({
-		scrollTop: $('section').prop('scrollHeight')
+	$('#zone_chat').animate({
+		scrollTop: $('#zone_chat').prop('scrollHeight')
 	}, 500);
 }

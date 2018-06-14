@@ -18,8 +18,16 @@
 		<span> <%= username %> </span>
 		<a href="/logout"> Logout </a>
 	</div>
-
 	<h1>Channel list</h1>
+
+	<div id="user_list">
+		<% for (var i = 0; i < users.length; i++) { %>
+			<a>
+				<%= users[i] %>
+			</a><br>
+			<% }; %>
+	</div>
+
 	<% for (var i = 0; i < discord.length; i++) { %>
 		<div class="channel_list link_button">
 			<a href="<%=discord[i].channel_name%>">
@@ -28,7 +36,6 @@
 			<span> <%= discord[i].history.length - 1 %> messages </span>
 		</div>
 		<% }; %>
-
 			<form id="new_channel" action="/list" method="post">
 				<input type="text" name="new_channel" placeholder="New channel" size="25" autocomplete="off" autofocus required />
 				<input type="submit" value="Create" />
