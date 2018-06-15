@@ -5,6 +5,10 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+::selection {
+	color: black;
+}
+
 canvas {
 	vertical-align: bottom;
 }

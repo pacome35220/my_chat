@@ -1,5 +1,8 @@
 # Changelog
 All notable changes to this project will be documented in this file.
+## 4.6 - 14/05/2018
+### Modified
+- Client connect to server without setting IP
 ## 4.5 - 14/05/2018
 ### Added
 - Users list on channel list page
