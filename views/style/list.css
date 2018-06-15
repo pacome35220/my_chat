@@ -24,12 +24,21 @@ h1 {
 }
 
 #user_list {
-	text-align: right;
-	margin: 100px 100px 0 0;
-	list-style-type: none;
+	position: absolute;
+	height: 550px;
+	width: 180px;
+	float: right;
+	right: 200px;
+	overflow: auto;
+	font-size: 150%;
+	text-align: center;
 }
 
-#user_list li {
+#user_list img {
+	position: relative;
+	left: 16px;
+	width: 16px;
+	height: 16px;
 }
 
 #new_channel {

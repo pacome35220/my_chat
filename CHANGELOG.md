@@ -1,5 +1,8 @@
 # Changelog
 All notable changes to this project will be documented in this file.
+## 4.5 - 14/05/2018
+### Added
+- Users list on channel list page
 ## 4.4 - 13/05/2018
 ### Modified
 - CSS : button for logout and go back home

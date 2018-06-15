@@ -18,13 +18,15 @@
 		<span> <%= username %> </span>
 		<a href="/logout"> Logout </a>
 	</div>
+
 	<h1>Channel list</h1>
 
 	<div id="user_list">
 		<% for (var i = 0; i < users.length; i++) { %>
-			<a>
+			<p>
 				<%= users[i] %>
-			</a><br>
+				<img src="connected.png" alt="Connecté" >
+			</p>
 			<% }; %>
 	</div>
 
@@ -35,11 +37,12 @@
 			</a>
 			<span> <%= discord[i].history.length - 1 %> messages </span>
 		</div>
-		<% }; %>
-			<form id="new_channel" action="/list" method="post">
-				<input type="text" name="new_channel" placeholder="New channel" size="25" autocomplete="off" autofocus required />
-				<input type="submit" value="Create" />
-			</form>
+	<% }; %>
+
+	<form id="new_channel" action="/list" method="post">
+		<input type="text" name="new_channel" placeholder="New channel" size="25" autocomplete="off" autofocus required />
+		<input type="submit" value="Create" />
+	</form>
 </body>
 
 </html>
