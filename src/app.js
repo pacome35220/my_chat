@@ -4,10 +4,11 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var compression = require('compression');
 var body_parser = require('body-parser');
-var session = require('express-session');
+var session = require('cookie-session');
+
+var port = process.env.PORT || 8080;
 
 var Discord = require('./discord.js');
-
 var discord = new Discord();
 
 module.exports = {
@@ -31,10 +32,9 @@ app.use('/', require('./routes/index.js'));
 app.use('/list', require('./routes/list.js'));
 
 app.get('/logout', function(req, res) {
+	console.log(req.session.user + " logged out.");
 	discord.remove_user(req.session.user);
-	req.session.destroy(function() {
-		console.log("User logged out.");
-	});
+	req.session = null;
 	res.redirect('/');
 });
 
@@ -93,6 +93,6 @@ io.on('connection', function(socket) {
 	});
 });
 
-console.log("Listening on localhost:8080\n");
+console.log("Port : " + port);
 
-server.listen(8080);
+server.listen(port);
